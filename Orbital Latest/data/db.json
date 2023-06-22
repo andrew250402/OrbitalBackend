@@ -1,0 +1,18 @@
+{
+  "user-info": [
+    {
+      "email": "e0967980@u.nus.edu",
+      "password": "abcd1234",
+      "name": "Gabriel Seethor",
+      "semester": "Y2S1",
+      "current-modules": ["CS2100", "CS2103", "CS2101", "ST2334"]
+    },
+    {
+      "email": "e0123456@u.nus.edu",
+      "password": "12345678",
+      "name": "Andrew Nguyen",
+      "semester": "Y4S1",
+      "current-modules": ["DSA3101", "CS3244", "HSI1000", "GEA1000"]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+.user-container {
+  width: 400px;
+  height: 100px;
+  background: white;
+  border-radius: 30px;
+}
+
+.user-list {
+  display: flex;
+  flex-direction: row;
+}

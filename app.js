@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
-const User = require('./models/user.js');
+const authRoutes = require('./routes/authRoutes');
+const infoRoutes = require('./routes/infoRoutes');
+const reviewRoutes = require('./routes/reviewRoutes');
+const User = require('./models/user');
+const ModReview = require('./models/modReview');
 
 // express app
 const app = express();
@@ -10,7 +13,7 @@ const app = express();
 //connect to mongodb
 const dbURI = "mongodb+srv://plswork:Idk1234@orbital.tnuqfkm.mongodb.net/techbros?retryWrites=true&w=majority";
 mongoose.connect(dbURI)
-    .then((result) => app.listen(3000))
+    .then((result) => app.listen(3001))
     .catch((err) => console.log(err));
 
 
@@ -19,22 +22,23 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-//Request handler for "/"
-app.get('/', (req, res) => {
-    res.sendFile('./public/login.html', {root: __dirname});
-});
+//view engines
+app.set('view engine', 'ejs');
+
 
 //Success login, to be individualised
 app.get('/success-login', (req, res) => {
-    res.sendFile('./public/success.html', {root: __dirname});
+    res.render('success');
 });
 
 //mannually add user
 app.get('/add-user', (req, res) => {
     const user = new User({
-        username: "Techbros",
-        email: "techbros@gmail.com",
-        password: "12345678"
+        email: "e0123456@u.nus.edu",
+        password: "12345678",
+        name: "Andrew Nguyen",
+        semester: "Y4S1",
+        currentModules: ["DSA3101", "CS3244", "HSI1000", "GEA1000"]
     });
 
     user.save()
@@ -46,15 +50,27 @@ app.get('/add-user', (req, res) => {
         });
 });
 
-app.post('/', (req, res) => {
-    const input = req.body;
-    User.find({email: input.email, password: input.password})
-        .exec()
-        .then((wtv) => {
-            res.json({result: wtv, redirect: '/success-login'})
-            
+app.get('/add-review', (req, res) => {
+    const review = new ModReview({
+        module: "HSS1000",
+        grade: "C+",
+        yearTaken: "Y1S2",
+        description: "5 tutorials in total. There are no exams but just CAs which are reflection essays.",
+        review: "I did not learn anything from this module. I reflective essays weightage was 20% but you can only get 10% OR 20%.",
+        user: "64969e0e225c0c009dc934eb"
+    });
+
+    review.save()
+        .then((result) => {
+            res.send(result);
         })
         .catch((err) => {
             console.log(err);
         });
 });
+
+//routes
+app.use('/api/auth', authRoutes);
+app.use('/api/info', infoRoutes);
+app.use('/api/review', reviewRoutes);
+

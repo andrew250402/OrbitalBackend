@@ -14,7 +14,7 @@ submitBtn.addEventListener('click', (e) => {
       password: password
     };
 
-    fetch('/', {
+    fetch('/login', {
         method: 'POST',
         headers: {
         'Content-Type': 'application/json'

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ModReview = require('./modReview')
 
 //Make Schema, defining structure
 const userSchema = new Schema({
@@ -38,6 +39,13 @@ userSchema.statics.login = async function(email, password) {
         throw Error('Incorrect email or password')
     }
     return user
+}
+
+userSchema.statics.getPortfolio = async function (user) {
+    
+    const portfolio = await ModReview.find({user: user._id})
+    
+    return portfolio;
 }
 
 //Create model based on the Schema and define name

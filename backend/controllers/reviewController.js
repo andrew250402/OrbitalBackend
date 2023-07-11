@@ -8,3 +8,26 @@ module.exports.getUserReviews = async (req, res) => {
 
     res.status(200).json(reviews)
 };
+
+module.exports.newReview = async (req, res) => {
+    const user_id = req.user._id
+
+    const {module, grade, yearTaken, description, review} = req.body
+
+    const newReview = new ModReview({
+        module: module,
+        grade: grade,
+        yearTaken: yearTaken,
+        description: description,
+        review: review,
+        user: user_id
+    });
+    newReview.save()
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+}
+

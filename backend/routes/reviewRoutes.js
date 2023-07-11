@@ -6,6 +6,8 @@ const router = Router();
 
 router.use(requireAuth)
 
-router.get('/', reviewController.getUserReviews); //to change
+router.get('/', reviewController.getUserReviews);
+
+router.post('add-review', reviewController.newReview);
 
 module.exports = router;

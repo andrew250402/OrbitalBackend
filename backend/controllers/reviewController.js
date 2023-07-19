@@ -12,7 +12,7 @@ module.exports.getUserReviews = async (req, res) => {
 module.exports.newReview = async (req, res) => {
     const user_id = req.user._id
 
-    const {module, grade, yearTaken, description, review} = req.body
+    const {module, grade, yearTaken, description, review, _id} = req.body
 
     const newReview = new ModReview({
         module: module,
@@ -20,7 +20,7 @@ module.exports.newReview = async (req, res) => {
         yearTaken: yearTaken,
         description: description,
         review: review,
-        user: user_id
+        user: _id
     });
     newReview.save()
         .then((result) => {
@@ -30,4 +30,3 @@ module.exports.newReview = async (req, res) => {
             console.log(err);
         });
 }
-

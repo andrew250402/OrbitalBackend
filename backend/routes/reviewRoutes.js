@@ -8,6 +8,6 @@ router.use(requireAuth)
 
 router.get('/', reviewController.getUserReviews);
 
-router.post('add-review', reviewController.newReview);
+router.post('/add-review', reviewController.newReview);
 
 module.exports = router;

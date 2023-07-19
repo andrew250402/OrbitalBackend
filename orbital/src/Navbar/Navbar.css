@@ -45,3 +45,9 @@
 .column:hover .icon {
   color: rgba(239, 124, 0, 1);
 }
+
+.link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

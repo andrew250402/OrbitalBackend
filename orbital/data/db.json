@@ -6,6 +6,7 @@
       "name": "Gabriel Seethor",
       "semester": "Y2S1",
       "currentmodules": ["CS2100", "CS2103", "CS2101", "ST2334"],
+      "modulesreviewed": ["CS2040S", "GEA1000"],
       "id": 1
     },
     {
@@ -14,6 +15,7 @@
       "name": "Andrew Nguyen",
       "semester": "Y4S1",
       "currentmodules": ["DSA3101", "CS3244", "HSI1000", "GEA1000"],
+      "modulesreviewed": ["HSS1000", "DSA1101"],
       "id": 2
     }
   ]

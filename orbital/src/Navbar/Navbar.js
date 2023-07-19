@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useLogout } from '../hooks/useLogout'
+import { useLogout } from "../hooks/useLogout";
 import logo from "../images/Orbital Poster Final.png";
 import "./Navbar.css";
 import {
@@ -11,11 +11,11 @@ import {
 import SearchBar from "./Searchbar";
 
 const Navbar = () => {
-  const { logout } = useLogout()
+  const { logout } = useLogout();
 
   const handleClick = () => {
-    logout()
-  }
+    logout();
+  };
 
   return (
     <nav className="navbar">
@@ -42,7 +42,7 @@ const Navbar = () => {
             <div className="icon">
               <FaComments className="pic" />
             </div>
-            Chats
+            <div>Chats</div>
           </Link>
         </div>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
             <div className="icon">
               <FaFolderOpen className="pic" />
             </div>
-            My Portfolio
+            <div>My Portfolio</div>
           </Link>
         </div>
 

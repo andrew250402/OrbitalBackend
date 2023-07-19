@@ -9,7 +9,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const {login, isLoading, error} = useLogin()
 
-  // Please change this handleSubmit. For now I have made a fake login without the use of authentification. Please change it to the actual code to push(/home) only if the email/pw is in the database. If wrong username or pw, give the error message//
   const handleSubmit = async (e) => {
     e.preventDefault()
     

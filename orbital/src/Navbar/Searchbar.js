@@ -1,11 +1,13 @@
 import { useState } from "react";
 import "./Searchbar.css";
 import { FaMagnifyingGlass } from "react-icons/fa6";
-import { useSearch } from '../hooks/useSearch'
+import { useHistory } from "react-router-dom";
+import ParentComponent from '../trySearch';
 
-const SearchBar = () => {
+const SearchBar = ( {onSearch} ) => {
+  console.log(typeof(onSearch))
   const [searchTerm, setSearchTerm] = useState("");
-  const {search, isLoading, error} = useSearch()
+  const history = useHistory();
 
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -13,8 +15,9 @@ const SearchBar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await search(searchTerm);
+    
+    onSearch(searchTerm);
+    history.push("/searchResult");
   };
 
   return (

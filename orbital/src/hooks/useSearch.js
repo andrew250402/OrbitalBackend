@@ -18,8 +18,8 @@ export const useSearch = () => {
             setIsLoading(false)
             setError(json.error)
         } else {
-            console.log(json)
+            return json
         }
     }
-    return { search, isLoading, error }
+    return {search , isLoading, error }
 }

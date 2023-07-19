@@ -5,8 +5,9 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import Chats from "../Chats/Chats";
-import MyPortfolio from "../MyPortfolio";
+import MyPortfolio from "../MyPortfolio/MyPortfolio";
 import Login from "../Login/Login";
+import ParentComponent from "../trySearch"
 
 function App() {
   const { user } = useAuthContext();
@@ -51,6 +52,15 @@ function App() {
             </Route>
             <Route path="/login">
               {user ? <Redirect to="/home" /> : <Login />}
+            </Route>
+            <Route path="/searchResult">
+              {user ? (
+                <>
+                  <ParentComponent />
+                </>
+              ) : (
+                <Redirect to="/login" />
+              )}
             </Route>
           </Switch>
         </div>

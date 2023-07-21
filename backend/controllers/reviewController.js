@@ -9,6 +9,14 @@ module.exports.getUserReviews = async (req, res) => {
     res.status(200).json(reviews)
 };
 
+module.exports.getOtherReviews = async (req, res) => {
+    const user_id = req.params._id
+
+    const reviews = await ModReview.find({ user: user_id}).sort({createdAt: -1})
+
+    res.status(200).json(reviews)
+};
+
 module.exports.newReview = async (req, res) => {
     const user_id = req.user._id
 

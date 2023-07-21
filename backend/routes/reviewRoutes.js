@@ -4,7 +4,9 @@ const requireAuth = require('../middleware/requireAuth')
 
 const router = Router();
 
-router.use(requireAuth)
+router.get('/:_id', reviewController.getOtherReviews);
+
+router.use(requireAuth);
 
 router.get('/', reviewController.getUserReviews);
 

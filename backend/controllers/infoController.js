@@ -29,12 +29,4 @@ module.exports.getSearchInfo = async (req, res) => {
         res.status(400).json({error: error.message})
     }
 }
-//module.exports.:id_post = (req, res) => {
 
-//};
-//module.exports.portfolio_id_get = (req, res) => {
-
-//};
-//module.exports.login_id_put = (req, res) => {
-
-//};

@@ -33,6 +33,10 @@ const Side = () => {
               <p>{module} </p>
             ))}
           </p>
+
+          <p>
+            If you have any question, feel free to contact me via {user.email}
+          </p>
         </article>
       )}
     </div>

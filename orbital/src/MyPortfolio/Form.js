@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./Form.css";
 import { useNewReview } from '../hooks/useNewReview'
-//import { useHistory } from "react-router-dom";
 
 const Form = ({ showForm, handleClick }) => {
   const [module, setModule] = useState("");
@@ -9,7 +8,6 @@ const Form = ({ showForm, handleClick }) => {
   const [yearTaken, setyearTaken] = useState("Y1S1");
   const [description, setDescription] = useState("");
   const [review, setReview] = useState("");
-  //const history = useHistory();
   const {newReview, isLoading, error} = useNewReview()
 
   const handlePost = async (e) => {
@@ -21,8 +19,9 @@ const Form = ({ showForm, handleClick }) => {
     }
     await newReview(module, grade, yearTaken, description, review);
 
-    //history.push("/home");
+    handleClick(e)
   };
+
 
   return (
     <div>

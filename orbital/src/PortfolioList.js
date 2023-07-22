@@ -1,6 +1,14 @@
 import "./PortfolioList.css";
+import { useAuthContext } from './hooks/useAuthContext';
 
-const PortfolioList = ({ portfolio }) => {
+const PortfolioList = ({ portfolio, onDelete }) => {
+  const { user } = useAuthContext();
+  const user_id = user.token
+
+  const handleDeleteClick = async (reviewId) => {
+    await onDelete(reviewId);
+  };
+
   return (
     <div className="portfolio-list">
       {portfolio.map((review) => (
@@ -8,7 +16,11 @@ const PortfolioList = ({ portfolio }) => {
           <h2 className="name">{review.module}</h2>
           <h2 className="grade">Grade: {review.grade}</h2>
 
-          <button className="red-x-button">X</button>
+          {review.user === user_id &&
+            <button 
+            className="red-x-button"
+            onClick={() => handleDeleteClick(review._id)}
+            >X</button>}
           <div className="yeartaken">Year taken: {review.yearTaken}</div>
           <div className="review-description">
             Description : {review.description}

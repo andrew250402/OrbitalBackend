@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  height: 8vh;
+}
+
+.searchbar {
+  flex: 1;
+  /* Add additional styling for the search bar */
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.links a {
+  display: inline-block;
+
+  font-weight: 600;
+  color: rgba(11, 31, 181, 0.7);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.icon {
+  color: rgba(239, 124, 0, 0.6);
+  font-size: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.column {
+  margin: 10px;
+}
+
+.column:hover .icon {
+  color: rgba(239, 124, 0, 1);
+}
+
+.link {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

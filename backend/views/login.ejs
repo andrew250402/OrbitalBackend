@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./images/Orbital Poster (7).png" />
+    <link rel="stylesheet" href="./css/form.css" />
+
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="alertbox">
+        <p class="alert">Error! Wrong email or password!</p>
+      </div>
+
+      <div class="logincontainer">
+        <div class="logincenter">
+          <div class="logo">
+            <img src="./images/Orbital Poster Full Final.png" alt="" />
+          </div>
+          <h2 class="signin">Sign In</h2>
+          <div class="singincontainer">
+            <form method = "POST" action="/">
+              <br />
+              <input
+                class="email"
+                type="email"
+                id="email"
+                placeholder="Email"
+                name = 'email'
+              />
+              <br />
+              <br />
+
+              <input class="password" type="password" placeholder="Password" name = 'password' />
+              <br />
+              <br />
+                <button class="btn">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const submitBtn = document.querySelector('.btn');
+
+      submitBtn.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent the default form submission
+
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.querySelector('.password');
+
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      const formData = {
+        email: email,
+        password: password
+      };
+
+      fetch('/login', {
+          method: 'POST',
+          headers: {
+          'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData) // Convert the form data object to JSON
+          })
+          .then((response) => response.json())
+          .then((data) => {
+              if (data.result.length != 0) {
+                  window.location.href = data.redirect;
+              } else {
+                  alertBox();
+              }
+          })
+          .catch((err) => {
+              console.log(err);
+          });
+      });
+
+      const alertBox = () => {
+          const alertContainer = document.querySelector('.alertbox');
+          alertContainer.style.top = `5%`;
+          setTimeout(() => {
+              alertContainer.style.top = null;
+          }, 5000);
+      }
+    </script>
+  </body>
+</html>

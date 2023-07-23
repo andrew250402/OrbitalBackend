@@ -12,7 +12,7 @@ const app = express();
 
 
 //connect to mongodb
-const dbURI = process.env.DBURI;
+const dbURI = "mongodb+srv://plswork:QG7FAErooggHlbOF@orbital.tnuqfkm.mongodb.net/techbros?retryWrites=true&w=majority";
 mongoose.connect(dbURI)
     .then((result) => app.listen(process.env.PORT))
     .catch((err) => console.log(err));

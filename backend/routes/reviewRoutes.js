@@ -6,6 +6,10 @@ const router = Router();
 
 router.get('/:_id', reviewController.getOtherReviews);
 
+router.delete('/:review_id', reviewController.deleteReview);
+
+router.put('/:review_id', reviewController.editReview);
+
 router.use(requireAuth);
 
 router.get('/', reviewController.getUserReviews);

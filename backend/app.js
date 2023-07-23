@@ -17,7 +17,7 @@ const corsOptions = {
 //connect to mongodb
 const dbURI = "mongodb+srv://plswork:QG7FAErooggHlbOF@orbital.tnuqfkm.mongodb.net/techbros?retryWrites=true&w=majority";
 mongoose.connect(dbURI)
-    .then((result) => app.listen(process.3001))
+    .then((result) => app.listen(3001))
     .catch((err) => console.log(err));
 
 

@@ -30,6 +30,23 @@ const MyPortfolio = () => {
     if (response.ok) {
       dispatch({type: 'DELETE_REVIEW', payload: json})
     }
+
+  // const handleEdit = async (reviewId, module, grade, yearTaken, description, review) => {
+  //   const response = await fetch(`/api/review/${reviewId}`, {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Authorization': `Bearer ${user.token}`
+  //     },
+  //     body: JSON.stringify({
+  //       module,
+  //       grade,
+  //       yearTaken,
+  //       description,
+  //       review,
+  //     }),
+  //   });
+  //   }
   }
   return (
     <div className={showForm ? "container greyedout" : "container"}>

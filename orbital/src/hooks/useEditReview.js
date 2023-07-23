@@ -2,18 +2,19 @@ import { useState } from 'react'
 import { useAuthContext } from './useAuthContext'
 import { useReviewsContext } from './useReviewsContext'
 
-export const useNewReview = () => {
+export const useEditReview = () => {
     const [error, setError] = useState (null)
     const [isLoading, setIsLoading] = useState(null)
     const { user } = useAuthContext()
     const { dispatch } = useReviewsContext()
 
-    const newReview = async (module, grade, yearTaken, description, review) => {
+    const editReview = async (review_id, module, grade, yearTaken, description, review) => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('/api/review/add-review', {
-            method: 'POST',
+        //to make new api for put
+        const response = await fetch(`/api/review/${review_id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${user.token}`
@@ -23,8 +24,7 @@ export const useNewReview = () => {
                 grade, 
                 yearTaken, 
                 description, 
-                review,
-                _id: user.token
+                review
             })
         })
         const json = await response.json()
@@ -33,7 +33,9 @@ export const useNewReview = () => {
             setIsLoading(false)
             setError(json.error)
         }
+        //to make a new dispatch case
+        dispatch({type: 'DELETE_REVIEW', payload: json})
         dispatch({type: 'CREATE_REVIEW', payload: json})
     }
-    return {newReview, isLoading, error }
+    return {editReview, isLoading, error }
 }

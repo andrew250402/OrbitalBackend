@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: row;
+  font-family: Roboto, sans-serif;
+}
+
+.main-container {
+  height: 80vh;
+  width: 30vw;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 20vw;
+  margin-top: 4vh;
+
+  font-size: 30px;
+  font-weight: bold;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.side-container {
+  height: 200px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 5vw;
+  margin-top: 4vh;
+}
+
+.main-logo {
+  height: 93px;
+  width: 213px;
+}
+
+.img {
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.title {
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+.about {
+  font-size: 25px;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+.about-description {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.full-main-container h2 {
+  margin-top: 25px;
+  font-size: 15px;
+  text-decoration: underline;
+  color: rgba(11, 31, 181, 1);
+}
+
+.full-main-container p {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.about-header {
+  margin-left: 35%;
+}
+
+.square {
+  min-height: 200px;
+  min-width: 200px;
+  background: rgba(11, 31, 181, 1);
+  margin: 100px;
+  border-radius: 20px;
+}
+
+.home-container {
+  margin-left: 200px;
+}
+
+.smaller-right-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+  .square {
+    margin-left: 200px;
+  }
+}
+
+.home-pics {
+  height: 125px;
+  width: 125px;
+  color: rgba(239, 124, 0, 1);
+  margin-left: 37.5px;
+  margin-top: 25px;
+}
+
+.home-word {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 60px;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.portfolio-word {
+  margin-left: 45px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.portfolio-pics {
+  height: 125px;
+  width: 125px;
+  color: rgba(239, 124, 0, 1);
+  margin-left: 42.5px;
+  margin-top: 25px;
+}
+
+.log-pics {
+  height: 125px;
+  width: 125px;
+  color: rgba(239, 124, 0, 1);
+  margin-left: 42.5px;
+  margin-top: 25px;
+}
+
+.log-word {
+  margin-left: 45px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 2rem;
+  text-decoration: none;
+}

@@ -6,10 +6,14 @@ const infoRoutes = require('./routes/infoRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const User = require('./models/user');
 const ModReview = require('./models/modReview');
+const cors = require('cors');
 
 // express app
 const app = express();
 
+const corsOptions = {
+    origin:'https://iridescent-cactus-6a0f4d.netlify.app/'
+};
 
 //connect to mongodb
 const dbURI = "mongodb+srv://plswork:QG7FAErooggHlbOF@orbital.tnuqfkm.mongodb.net/techbros?retryWrites=true&w=majority";
@@ -19,6 +23,7 @@ mongoose.connect(dbURI)
 
 
 //middleware & static files
+app.use(cors(corsOptions));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
